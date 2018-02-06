@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/angular.js"></script>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('AlbumController', function ($scope) {
+            $scope.album = [
+                {name: 'Tom', duration: 22.2},
+                {name: 'Oliver', duration: 33.3},
+                {name: 'Andy', duration: 44.4}
+            ]
+        })
+    </script>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="AlbumController">
+    <table ng-repeat="track in album">
+        <tr>
+            <td>{{$index + 1}}</td>
+            <td>{{track.name}}</td>
+            <td>{{track.duration}}</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

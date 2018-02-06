@@ -1,0 +1,16 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/angular.js"></script>
+    <script src="controller.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="HelloController">
+    <input type="text" ng-model="greeting.text">
+    <p>
+        {{greeting.text}}, World
+    </p>
+</div>
+</body>
+</html>

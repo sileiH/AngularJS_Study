@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order_Form</title>
+    <script src="../js/angular.js"></script>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller('CartController', function ($scope) {
+            $scope.items = [
+                {tittle: 'PHP', quantity: 8, price: 3.95},
+                {tittle: 'C++', quantity: 9, price: 4.50},
+                {tittle: 'JAVA', quantity:15, price: 9.99}
+            ]
+
+            $scope.remove = function (index) {
+                $scope.items.splice(index,1);
+            }
+        })
+    </script>
+</head>
+<body ng-app="myApp" ng-controller="CartController">
+<div ng-repeat="item in items">
+    <span>tittle:{{item.tittle}}</span><br>
+    quantity:<input type="text" ng-model="item.quantity"><br>
+    <span>price:{{item.price | currency}}</span><br>
+    <span>count:{{item.price * item.quantity | currency}}</span>
+    <input type="button" ng-click="remove($index)" value="remove">
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/angular.js"></script>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller('WatchController', function ($scope) {
+            $scope.someProperty = 100;
+
+            var dereg = $scope.$watch('someProperty', function (newVal) {
+                window.alert(newVal);
+            });
+
+            //dereg();
+
+        })
+
+    </script>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="WatchController">
+    <input ng-model="someProperty">
+    <span>{{someProperty}}</span>
+</div>
+</body>
+</html>

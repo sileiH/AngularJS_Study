@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/angular.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="ShopOrderController">
+    <h1>Shop!</h1>
+    <table>
+        <tr ng-repeat="item in items">
+            <td>{{item.tittle}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.price | currency}}</td>
+        </tr>
+    </table>
+</div>
+<script>
+    //Module
+    var app = angular.module('myApp', []);
+    //Controller
+    app.controller('ShopOrderController', function ($scope, Items) {
+        $scope.items = Items.query();
+    })
+    //Service
+    app.factory('Items', function () {
+        var items = {};
+        items.query = function () {
+            return [
+                {tittle: 'Paint pots', description: 'Pots full of paint', price: 3.95},
+                {tittle: 'Polka dots', description: 'Dots with polka', price: 2.95},
+                {tittle: 'Pebbles', description: 'Just little rocks', price: 6.95}
+            ]
+        }
+        return items;
+    })
+</script>
+</body>
+</html>
